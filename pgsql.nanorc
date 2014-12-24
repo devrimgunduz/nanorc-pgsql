@@ -1,0 +1,56 @@
+## Here is an example for PostgreSQL
+
+syntax "sql" "\.sql[2345s~]?$"
+magic "PostgreSQL script text"
+
+# Functions.
+color white "\<[a-z_]*\("
+
+# Types.
+color green "\<(int|int2|int4|int8|bigint|smallint|integer|)\>"
+color green "\<(bool|char|enum|)\>"
+color green "\<(char|varchar)\>"
+color green "\<(boolchar|enum|)\>"
+
+# Structure.
+color brightyellow "\<(class|new|private|public|function|for|foreach|if|while|do|else|elseif|case|default|switch)\>"
+
+# Control flow.
+color magenta "\<(raise|exception|notice|return)\>"
+
+# SQL Keywords
+color blue "(ABORT|AGGREGATE|ALTER|ANALYZE|AS|AUTHORIZATION|BEGIN|CAST|CHECKPOINT|CLASS|CLOSE|CLUSTER|COLLATION|COMMENT|COMMIT|CONFIGURATION|CONSTRAINTS|CONVERSION|COPY|CREATE|DATA|DATABASE|DEALLOCATE|DECLARE|DEFAULT|DELETE|DICTIONARY|DISCARD|DO|DROP|END|EVENT|EXECUTE|EXPLAIN|EXTENSION|FAMILY|FETCH|FOREIGN|FUNCTION|GRANT|GROUP|INDEX|INSERT|INTO|LABEL|LANGUAGE|LARGE|LOAD|LOCK|MATERIALIZED|MOVE|NOTIFY|OBJECT|OPERATOR|OWNED|PARSER|PREPARE|PREPARED|PRIVILEGES|REASSIGN|REFRESH|RELEASE|RESET|REVOKE|ROLE|ROLLBACK|RULE|SAVEPOINT|SCHEMA|SEARCH|SECURITY|SELECT|SEQUENCE|SERVER|SESSION|SET|SHOW|SPACE|START|SYSTEM|TABLE|TEXT|TO|TRANSACTION|TYPE|UPDATE|USER|VACUUM|VALUES|VIEW|WITH|WRAPPER)"
+
+# Strings.
+color brightyellow "<[^=       ]*>" ""(\.|[^"])*""
+
+# Trailing whitespace.
+color ,green "[[:space:]]+$"
+
+# Regular expressions.
+color brightmagenta "/([^/]|(\\/))*/[iomx]*" "%r\{([^}]|(\\}))*\}[iomx]*"
+
+# Shell command expansion is in `backticks` or like %x{this}.  These are
+# "double-quotish" (to use a perlism).
+color brightblue "`[^`]*`" "%x\{[^}]*\}"
+
+# Strings, double-quoted.
+color green ""([^"]|(\\"))*"" "%[QW]?\{[^}]*\}" "%[QW]?\([^)]*\)" "%[QW]?<[^>]*>" "%[QW]?\[[^]]*\]" "%[QW]?\$[^$]*\$" "%[QW]?\^[^^]*\^" "%[QW]?![^!]*!"
+
+# Expression substitution.  These go inside double-quoted strings,
+# "like #{this}".
+color brightgreen "#\{[^}]*\}"
+
+# Strings, single-quoted.
+color green "'([^']|(\\'))*'" "%[qw]\{[^}]*\}" "%[qw]\([^)]*\)" "%[qw]<[^>]*>" "%[qw]\[[^]]*\]" "%[qw]\$[^$]*\$" "%[qw]\^[^^]*\^" "%[qw]![^!]*!"
+
+# Comments.
+color red "#[^{].*$" "#$"
+color red "--[^{].*$" "#$"
+color red "##[^{].*$" "##$"
+color brightblue "//.*"
+color brightblue start="/\*" end="\*/"
+
+# PostgreSQL markings.
+color red "(--)"
+
