@@ -17,23 +17,24 @@ color green "\<(int4range|int8range|numrange|tsrange|tstzrange|daterange)\>"
 
 # Structure.
 color brightyellow "\<(class|new|private|public|function|for|foreach)}>"
-color brightyellow "\<(if|while|do|else|elseif|case|default|switch)\>"
+color brightyellow "\<(IF|WHILE|IS NULL|WHEN|DO|ELSE|ELSEIF|CASE|DEFAULT|SWITCH|THEN)\>"
+color brightyellow "\<(SETOF|RETURN|RETURNS)\>"
 
 # Control flow.
 color magenta "\<(raise|exception|notice|return)\>"
 
 # SQL Keywords
-color blue "(ABORT|AGGREGATE|ALTER|ANALYZE|AS|AUTHORIZATION|BEGIN|CAST)"
+color blue "(ABORT|AGGREGATE|ALTER|ANALYZE|AND|AS|AUTHORIZATION|BEGIN|CAST)"
 color blue "(CHECKPOINT|CLASS|CLOSE|CLUSTER|COLLATION|COMMENT|COMMIT)"
 color blue "(CONFIGURATION|CONSTRAINTS|CONVERSION|COPY|CREATE|DATA|DATABASE)"
-color blue "(DEALLOCATE|DECLARE|DEFAULT|DELETE|DICTIONARY|DISCARD|DO|DROP|END)"
-color blue "(EVENT|EXECUTE|EXPLAIN|EXTENSION|FAMILY|FETCH|FOREIGN|FUNCTION)"
-color blue "(GRANT|GROUP|INDEX|INSERT|INTO|LABEL|LANGUAGE|LARGE|LOAD|LOCK)"
+color blue "(DEALLOCATE|DECLARE|DEFAULT|DELETE|DICTIONARY|DISCARD|DO|DOMAIN|DROP|END)"
+color blue "(EVENT|EXECUTE|EXPLAIN|EXTENSION|FAMILY|FETCH|FOREIGN|FROM|FUNCTION)"
+color blue "(GRANT|GROUP|IF NOT EXISTS|IMMUTABLE|INDEX|INSERT|INTO|LABEL|LANGUAGE|LARGE|LOAD|LOCK)"
 color blue "(MAPPING FOR|MATERIALIZED|MOVE|NOTIFY|OBJECT|OPERATOR|OPTIONS)"
-color blue "(OWNED|PARSER|PREPARE|PREPARED|PRIVILEGES|REASSIGN|REFRESH|RELEASE)"
+color blue "(OWNED|OWNER|PARSER|PREPARE|PREPARED|PRIVILEGES|REASSIGN|REFRESH|RELEASE)"
 color blue "(RESET|REVOKE|ROLE|ROLLBACK|RULE|SAVEPOINT|SCHEMA|SEARCH|SECURITY)"
 color blue "(SELECT|SEQUENCE|SERVER|SESSION|SET|SHOW|SPACE|START|SYSTEM|TABLE)"
-color blue "(TEXT|TO|TRANSACTION|TYPE|UPDATE|USER|VACUUM|VALUES|VIEW|WITH|WRAPPER)"
+color blue "(TEXT|TO|TRANSACTION|TYPE|UPDATE|USER|VACUUM|VALUES|VIEW|WHERE|WITH|WRAPPER)"
 
 # Strings.
 color brightyellow "<[^=       ]*>" ""(\.|[^"])*""
@@ -68,3 +69,36 @@ color brightblue start="/\*" end="\*/"
 # PostgreSQL markings.
 color red "(--)"
 
+# PostgreSQL default schemas
+color brightred "(public|pg_catalog)"
+
+# PostgreSQL PLs
+color brightblue "(plpgsql|plperl|plpython|plperlu|plpythonu)"
+
+# PostgreSQL parameters (TODO)
+
+color brightmagenta "(allow_system_table_mods|application_name|archive_command|archive_mode|archive_timeout|array_nulls|authentication_timeout|autovacuum|autovacuum_analyze_scale_factor)"
+color brightmagenta "(autovacuum_analyze_threshold|autovacuum_freeze_max_age|autovacuum_max_workers|autovacuum_multixact_freeze_max_age|autovacuum_naptime|autovacuum_vacuum_cost_delay|autovacuum_vacuum_cost_limit)"
+color brightmagenta "(autovacuum_vacuum_scale_factor|autovacuum_vacuum_threshold|autovacuum_work_mem|backslash_quote|bgwriter_delay|bgwriter_lru_maxpages|bgwriter_lru_multiplier|block_size|bonjour|bonjour_name)"
+color brightmagenta "(bytea_output|check_function_bodies|checkpoint_completion_target|checkpoint_segments|checkpoint_timeout|checkpoint_warning|client_encoding|client_min_messages|commit_delay|commit_siblings)"
+color brightmagenta "(config_file|constraint_exclusion|cpu_index_tuple_cost|cpu_operator_cost|cpu_tuple_cost|cursor_tuple_fraction|data_checksums|data_directory|DateStyle|db_user_namespace|deadlock_timeout)"
+color brightmagenta "(debug_assertions|debug_pretty_print|debug_print_parse|debug_print_plan|debug_print_rewritten|default_statistics_target|default_tablespace|default_text_search_config)"
+color brightmagenta "(default_transaction_deferrable|default_transaction_isolation|default_transaction_read_only|default_with_oids|dynamic_library_path|dynamic_shared_memory_type|effective_cache_size)"
+color brightmagenta "(effective_io_concurrency|enable_bitmapscan|enable_hashagg|enable_hashjoin|enable_indexonlyscan|enable_indexscan|enable_material|enable_mergejoin|enable_nestloop|enable_seqscan|enable_sort)"
+color brightmagenta "(enable_tidscan|escape_string_warning|event_source|exit_on_error|external_pid_file|extra_float_digits|from_collapse_limit|fsync|full_page_writes|geqo|geqo_effort|geqo_generations)"
+color brightmagenta "(geqo_pool_size|geqo_seed|geqo_selection_bias|geqo_threshold|gin_fuzzy_search_limit|hba_file|hot_standby|hot_standby_feedback|huge_pages|ident_file|ignore_checksum_failure)"
+color brightmagenta "(ignore_system_indexes|integer_datetimes|IntervalStyle|join_collapse_limit|krb_caseins_users|krb_server_keyfile|lc_collate|lc_ctype|lc_messages|lc_monetary|lc_numeric|lc_time)"
+color brightmagenta "(listen_addresses|lo_compat_privileges|local_preload_libraries|lock_timeout|log_autovacuum_min_duration|log_checkpoints|log_connections|log_destination|log_directory|log_disconnections)"
+color brightmagenta "(log_duration|log_error_verbosity|log_executor_stats|log_file_mode|log_filename|log_hostname|log_line_prefix|log_lock_waits|log_min_duration_statement|log_min_error_statement)"
+color brightmagenta "(log_min_messages|log_parser_stats|log_planner_stats|log_rotation_age|log_rotation_size|log_statement|log_statement_stats|log_temp_files|log_timezone|log_truncate_on_rotation)"
+color brightmagenta "(logging_collector|maintenance_work_mem|max_connections|max_files_per_process|max_function_args|max_identifier_length|max_index_keys|max_locks_per_transaction)"
+color brightmagenta "(max_pred_locks_per_transaction|max_prepared_transactions|max_replication_slots|max_stack_depth|max_standby_archive_delay|max_standby_streaming_delay|max_wal_senders|max_worker_processes)"
+color brightmagenta "(password_encryption|port|post_auth_delay|pre_auth_delay|quote_all_identifiers|random_page_cost|restart_after_crash|search_path|segment_size|seq_page_cost|server_encoding|server_version)"
+color brightmagenta "(server_version_num|session_preload_libraries|session_replication_role|shared_buffers|shared_preload_libraries|sql_inheritance|ssl|ssl_ca_file|ssl_cert_file|ssl_ciphers|ssl_crl_file)"
+color brightmagenta "(ssl_ecdh_curve|ssl_key_file|ssl_prefer_server_ciphers|ssl_renegotiation_limit|standard_conforming_strings|statement_timeout|stats_temp_directory|superuser_reserved_connections)"
+color brightmagenta "(synchronize_seqscans|synchronous_commit|synchronous_standby_names|syslog_facility|syslog_ident|tcp_keepalives_count|tcp_keepalives_idle|tcp_keepalives_interval|temp_buffers)"
+color brightmagenta "(temp_file_limit|temp_tablespaces|TimeZone|timezone_abbreviations|trace_notify|trace_recovery_messages|trace_sort|track_activities|track_activity_query_size|track_counts|track_functions)"
+color brightmagenta "(track_io_timing|transaction_deferrable|transaction_isolation|transaction_read_only|transform_null_equals|unix_socket_directories|unix_socket_group|unix_socket_permissions)"
+color brightmagenta "(update_process_title|vacuum_cost_delay|vacuum_cost_limit|vacuum_cost_page_dirty|vacuum_cost_page_hit|vacuum_cost_page_miss|vacuum_defer_cleanup_age|vacuum_freeze_min_age)"
+color brightmagenta "(vacuum_freeze_table_age|vacuum_multixact_freeze_min_age|vacuum_multixact_freeze_table_age|wal_block_size|wal_buffers|wal_keep_segments|wal_level|wal_log_hints)"
+color brightmagenta "(wal_receiver_status_interval|wal_receiver_timeout|wal_segment_size|wal_sender_timeout|wal_sync_method|wal_writer_delay|work_mem|xmlbinary|xmloption|zero_damaged_pages)"
