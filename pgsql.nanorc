@@ -7,19 +7,33 @@ magic "PostgreSQL script text"
 color white "\<[a-z_]*\("
 
 # Types.
-color green "\<(int|int2|int4|int8|bigint|smallint|integer|)\>"
-color green "\<(bool|char|enum|)\>"
-color green "\<(char|varchar)\>"
-color green "\<(boolchar|enum|)\>"
+color green "\<(int2|smallint|int4|int|integer|int8|bigint|decimal|numeric|real|double precision|smallserial|serial|bigserial)\>"
+color green "\<(money|bytea|boolean|enum|bit varying|bit|tsvector|uuid)\>"
+color green "\<(char|varchar|character varying|character|text)\>"
+color green "\<(timestamp|timestamp without time zone|timestamp with time zone|date|time|time with time zone|time without time zone|interval)\>"
+color green "\<(point|line|lseg|box|path|polygon|circle)\>"
+color green "\<(cidr|inet|macaddr)\>"
+color green "\<(int4range|int8range|numrange|tsrange|tstzrange|daterange)\>"
 
 # Structure.
-color brightyellow "\<(class|new|private|public|function|for|foreach|if|while|do|else|elseif|case|default|switch)\>"
+color brightyellow "\<(class|new|private|public|function|for|foreach)}>"
+color brightyellow "\<(if|while|do|else|elseif|case|default|switch)\>"
 
 # Control flow.
 color magenta "\<(raise|exception|notice|return)\>"
 
 # SQL Keywords
-color blue "(ABORT|AGGREGATE|ALTER|ANALYZE|AS|AUTHORIZATION|BEGIN|CAST|CHECKPOINT|CLASS|CLOSE|CLUSTER|COLLATION|COMMENT|COMMIT|CONFIGURATION|CONSTRAINTS|CONVERSION|COPY|CREATE|DATA|DATABASE|DEALLOCATE|DECLARE|DEFAULT|DELETE|DICTIONARY|DISCARD|DO|DROP|END|EVENT|EXECUTE|EXPLAIN|EXTENSION|FAMILY|FETCH|FOREIGN|FUNCTION|GRANT|GROUP|INDEX|INSERT|INTO|LABEL|LANGUAGE|LARGE|LOAD|LOCK|MAPPING FOR|MATERIALIZED|MOVE|NOTIFY|OBJECT|OPERATOR|OPTIONS|OWNED|PARSER|PREPARE|PREPARED|PRIVILEGES|REASSIGN|REFRESH|RELEASE|RESET|REVOKE|ROLE|ROLLBACK|RULE|SAVEPOINT|SCHEMA|SEARCH|SECURITY|SELECT|SEQUENCE|SERVER|SESSION|SET|SHOW|SPACE|START|SYSTEM|TABLE|TEXT|TO|TRANSACTION|TYPE|UPDATE|USER|VACUUM|VALUES|VIEW|WITH|WRAPPER)"
+color blue "(ABORT|AGGREGATE|ALTER|ANALYZE|AS|AUTHORIZATION|BEGIN|CAST)"
+color blue "(CHECKPOINT|CLASS|CLOSE|CLUSTER|COLLATION|COMMENT|COMMIT)"
+color blue "(CONFIGURATION|CONSTRAINTS|CONVERSION|COPY|CREATE|DATA|DATABASE)"
+color blue "(DEALLOCATE|DECLARE|DEFAULT|DELETE|DICTIONARY|DISCARD|DO|DROP|END)"
+color blue "(EVENT|EXECUTE|EXPLAIN|EXTENSION|FAMILY|FETCH|FOREIGN|FUNCTION)"
+color blue "(GRANT|GROUP|INDEX|INSERT|INTO|LABEL|LANGUAGE|LARGE|LOAD|LOCK)"
+color blue "(MAPPING FOR|MATERIALIZED|MOVE|NOTIFY|OBJECT|OPERATOR|OPTIONS)"
+color blue "(OWNED|PARSER|PREPARE|PREPARED|PRIVILEGES|REASSIGN|REFRESH|RELEASE)"
+color blue "(RESET|REVOKE|ROLE|ROLLBACK|RULE|SAVEPOINT|SCHEMA|SEARCH|SECURITY)"
+color blue "(SELECT|SEQUENCE|SERVER|SESSION|SET|SHOW|SPACE|START|SYSTEM|TABLE)"
+color blue "(TEXT|TO|TRANSACTION|TYPE|UPDATE|USER|VACUUM|VALUES|VIEW|WITH|WRAPPER)"
 
 # Strings.
 color brightyellow "<[^=       ]*>" ""(\.|[^"])*""
