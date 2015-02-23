@@ -69,7 +69,7 @@ color red "(--)"
 color brightred "(public|pg_catalog)"
 
 # PostgreSQL PLs
-color brightblue "(plpgsql|plperl|plpython|plperlu|plpythonu)"
+color brightblue "(pljava|plruby|pltcl|plsh|plpgsql|plperl|plpy|plpython|plperlu|plpythonu|plr|plscheme)"
 
 # PostgreSQL parameters (TODO)
 
