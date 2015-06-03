@@ -16,7 +16,7 @@ color green "\<(cidr|inet|macaddr)\>"
 color green "\<(int4range|int8range|numrange|tsrange|tstzrange|daterange)\>"
 
 # Structure.
-color brightyellow "\<(CASE|CLASS|DEFAULT|DO|ELSE|ELSEIF|FOR|FOREACH|FUNCTION|IF|IS NULL|NEW|PRIVATE|PUBLIC|RETURN|RETURNS|SETOF|SWITCH|THEN|WHEN|WHILE|}>"
+color brightyellow "\<(CASE|CLASS|DEFAULT|DO|ELSE|ELSEIF|FOR|FOREACH|FUNCTION|IF|IS NULL|NEW|PRIVATE|PUBLIC|RETURN|RETURNS|SETOF|SWITCH|THEN|WHEN|WHILE)\>"
 
 # Control flow.
 color magenta "\<(EXCEPTION|NOTICE|RAISE|RETURN)\>"
